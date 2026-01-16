@@ -275,7 +275,6 @@ header.scrolled nav a { color: var(--primary-color); }
 }
 
 /* --- FIX UNTUK SELECT OPTION --- */
-/* Memaksa label dengan class 'static-label' agar selalu berada di posisi atas (floating) */
 .input-group .static-label {
   top: -10px !important;
   left: 10px !important;
@@ -286,10 +285,10 @@ header.scrolled nav a { color: var(--primary-color); }
   z-index: 10;
 }
 
-/* Memperbaiki tampilan dropdown select agar teksnya tidak terlalu mepet kiri */
+
 .input-group select {
   cursor: pointer;
-  color: white; /* Pastikan teks terlihat di background gelap */
+  color: white; 
 }
 
 /* Mengubah warna opsi saat dropdown dibuka (karena option default browser biasanya putih/hitam) */
