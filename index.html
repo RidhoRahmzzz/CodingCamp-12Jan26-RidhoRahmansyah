@@ -1,121 +1,248 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kargoo Corps - Global Logistics Solution</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/756/756940.png" type="image/png" />
 </head>
+
 <body>
 
-    <header>
-        <div style="
-            height: 75 px;
-            width: 75 px;
-            background-color: aqua;
-            border-radius: 50%;"
-            
-        <div class="logo">
+  <header id="header">
+    <div class="logo">
+      <h1>Kargoo<span>Corps</span>.</h1>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav id="navMenu">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#services" class="nav-link">Layanan</a>
+      <a href="#about" class="nav-link">Tentang</a>
+      <a href="#message" class="nav-link btn-contact">Hubungi Kami</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content hidden">
+      <h4>LOGISTIK TERPERCAYA SEJAK 2003</h4>
+      <h1>Pengiriman Cepat, <br> <span id="typingText">Tanpa Batas.</span></h1>
+      <p>
+        Halo <span id="userName" class="highlight-name">Guest</span>! Kami menghapus jarak dengan kecepatan. Solusi kargo nomor #1 untuk bisnis Asia Anda.
+      </p>
+      
+      <div class="input-name-wrapper">
+        <input type="text" id="nameInput" placeholder="Masukin dulu Namanya!..." autocomplete="off">
+        <button id="updateNameBtn">Sapa Donggg Saya <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h3 class="counter" data-target="2000">0</h3><span>+</span>
+          <p>Klien</p>
         </div>
+        <div class="stat-item">
+          <h3 class="counter" data-target="95">0</h3><span>%</span>
+          <p>Tepat Waktu</p>
         </div>
+      </div>
+    </div>
+    
+    <div class="hero-image hidden">
+      <img src="assets/Logo.png" alt="none">
+    </div>
+  </section>
 
-        <nav>
-            <ul>
-                <li><a href="#">My Company</a></li>
-                <li><a href="#">My CV</a></li>
-                <li><a href="#">My Achievement</a></li>
-                <li><a href="#">Leave a Message!!!</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="running-text-container">
+    <div class="loop-text">
+      <h1>KARGOO CORPS - <span>ASIA LOGISTICS</span> — FAST & SECURE — </h1>
+      <h1>KARGOO CORPS - <span>ASIA LOGISTICS</span> — FAST & SECURE — </h1>
+      <h1>KARGOO CORPS - <span>ASIA LOGISTICS</span> — FAST & SECURE — </h1>
+    </div>
+  </div>
 
-    <main>
-        <section class="hero-text">
-            <h1>Hi <span id="name">Y'All</span>, Hola Comostas</h1>
-            <p>First</p>
-        </section>
+  <div class="partners-bar">
+    <p>Dipercaya oleh perusahaan terkemuka :</p>
+    <div class="logos">
+      <i class="fab fa-amazon"></i>
+      <i class="fab fa-dhl"></i>
+      <i class="fab fa-fedex"></i>
+      <i class="fab fa-ebay"></i>
+      <i class="fab fa-alibaba"></i>
+    </div>
+  </div>
 
-        <section class="banner-container">
-            <div class="banner-box">
-                MY BINI
+  <section id="services" class="services">
+    <div class="section-title hidden">
+      <h2>Solusi Pengiriman Jika Anda Kepepet</h2>
+      <p>Pilih metode yang paling efisien untuk kebutuhan pengiriman paket Anda.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="card hidden">
+        <div class="icon"><i class="fas fa-plane-departure"></i></div>
+        <h3>Air Freight/Pesawat</h3>
+        <p>Solusi tercepat untuk kargo prioritas tinggi dengan jangkauan bandara global.</p>
+        <a href="#" class="card-link">Detail <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="card hidden">
+        <div class="icon"><i class="fas fa-ship"></i></div>
+        <h3>Ocean Freigh/Kapal Laut</h3>
+        <p>Pengiriman volume besar via kontainer budiono siregar kapal lawut dengan biaya paling ekonomis/midrange.</p>
+        <a href="#" class="card-link">Detail <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="card hidden">
+        <div class="icon"><i class="fas fa-truck-moving"></i></div>
+        <h3>Land Transport/Mobil Truk</h3>
+        <p>Armada truk logistik lengkap untuk distribusi langsung cus ke rumah anda.</p>
+        <a href="#" class="card-link">Detail <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="card hidden">
+        <div class="icon"><i class="fas fa-boxes"></i></div>
+        <h3>Warehousing</h3>
+        <p>Gudang penyimpanan pintar dengan sistem tracking (GPS) real-time 24 jam.</p>
+        <a href="#" class="card-link">Detail <i class="fas fa-chevron-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-parallax">
+    <div class="overlay"></div>
+    <div class="cta-content hidden">
+      <h2>Siap Mengirim Barang Anda ke Seluruh Asia?</h2>
+      <p>Dapatkan penawaran harga spesial untuk pengiriman pertama Anda hari ini.</p>
+      <a href="#message" class="btn-cta-large">Minta Penawaran <i class="fas fa-paper-plane"></i></a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-container">
+      <div class="about-img hidden">
+        <img src="https://plus.unsplash.com/premium_photo-1726797616358-5221a54d066b?q=80&w=966&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Warehouse Worker">
+      </div>
+      <div class="about-text hidden">
+        <h2>Kenapa Memilih <span style="color:var(--secondary-color)">Kargoo Corps?</span></h2>
+        <p>
+          Kami bukan sekadar jasa kirim, kami adalah mitra pertumbuhan bisnis Anda. Dengan teknologi tracking GPS terbaru, kami memastikan paket Anda aman sampai di rumah anda!.
+        </p>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <div>
+              <h4>Garansi Penuh</h4>
+              <small>Garansi ganti rugi 100%</small>
             </div>
-        </section>
-
-        <hr class="divider">
-
-        <section class="facilitation-section">
-            <h2>Our Facilitation</h2>
-            
-            <div class="facilitation-container">
-                <div class="fac-item">
-                    <div class="circle-icon"></div>
-                    <p>Professional<br>Teacher</p>
-                </div>
-                <div class="fac-item">
-                    <div class="circle-icon"></div>
-                    <p>Sport Field</p>
-                </div>
-                <div class="fac-item">
-                    <div class="circle-icon"></div>
-                    <p>Classroom</p>
-                </div>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-globe-asia"></i>
+            <div>
+              <h4>Jaringan Asia</h4>
+              <small>20+ Negara tujuan</small>
             </div>
-        </section>
-
-        <hr class="divider">
-
-        <section class="message-section">
-            <h2>Message Us</h2>
-
-            <div class="message-container">
-                <div class="form-box">
-                    <form name="message-form">
-                        <div class="form-group">
-                            <label>Nama :</label>
-                            <input type="text" placeholder="Nama" id="input-nama">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Tanggal Lahir :</label>
-                            <input type="date" id="input-tanggal">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Jenis Kelamin :</label>
-                            <div class="radio-group">
-                                <input type="radio" name="gender" value="Laki-Laki" id="gender-male" checked> 
-                                <label for="gender-male" style="font-weight: normal;">Laki-Laki</label>
-                                
-                                <input type="radio" name="gender" value="Perempuan" id="gender-female"> 
-                                <label for="gender-female" style="font-weight: normal;">Perempuan</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group align-top">
-                            <label>Pesan :</label>
-                            <textarea placeholder="Pesan" id="input-pesan"></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Submit</button>
-                    </form>
-                </div>
-
-                <div class="result-box">
-                    <p><strong>Current time :</strong> <span id="current-time">Fri Jun 17 2022...</span></p>
-                    <br>
-                    <p><strong>Nama :</strong> <span id="res-nama"></span></p>
-                    <p><strong>Tanggal Lahir :</strong> <span id="res-tanggal"></span></p>
-                    <p><strong>Jenis Kelamin :</strong> <span id="res-gender"></span></p>
-                    <p><strong>Pesan :</strong> <span id="res-pesan"></span></p>
-                </div>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-headset"></i>
+            <div>
+              <h4>Support 24/7</h4>
+              <small>Bantuan kapan saja dan dimana saja paket anda berada </small>
             </div>
-        </section>
-    </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <hr>
-        <p>Created By Kargoo Corps</p>
-    </footer>
-<script src="script.js"></script> 
-    </body>
+  <section id="message" class="contact">
+    <div class="contact-container hidden">
+      <div class="contact-header">
+        <h2>Hubungi Kami</h2>
+        <p>Isi formulir untuk Diskonan harga dan Konsultasi gratis.</p>
+      </div>
+
+      <div class="form-wrapper">
+        <form id="messageForm">
+          <div class="form-row">
+            <div class="input-group">
+              <input type="text" id="formName" required />
+              <label>Nama Lengkap</label>
+            </div>
+            <div class="input-group">
+              <input type="email" id="formEmail" required />
+              <label>Email Anda</label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <select id="serviceType">
+              <option value="Air Freight">Air Freight</option>
+              <option value="Ocean Freight">Ocean Freight</option>
+              <option value="Land Transport">Land Transport</option>
+              <option value="Warehousing">Warehousing</option>
+            </select>
+            <label class="static-label">Layanan </label>
+          </div>
+
+          <div class="input-group">
+            <textarea id="formMsg" rows="4" required></textarea>
+            <label>Pesan / Detail Barang</label>
+          </div>
+
+          <button type="submit" class="submit-btn">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
+        </form>
+
+        <div id="resultBox" class="result-ticket" style="display: none;">
+          <div class="ticket-header">
+            <h3><i class="fas fa-check-circle"></i> Permintaan Diterima</h3>
+            <span id="timestamp"></span>
+          </div>
+          <div class="ticket-body">
+            <p><strong>Nama:</strong> <span id="resName"></span></p>
+            <p><strong>Layanan:</strong> <span id="resService"></span></p>
+            <p class="note">Tim kami akan menghubungi: <span id="resEmail" style="color:#f66505"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Kargoo<span>Corps</span>.</h3>
+        <p>"Menggerakkan Asia Menuju Generasi c(Emas)'', 
+          <p> Paket terlambat? Berarti nyangkut di dc cakung.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tautan Cepat</h4>
+        <a href="#home">Home</a>
+        <a href="#services">Layanan</a>
+        <a href="#about">Tentang</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kantor Pusat</h4>
+        <p>Perumahan Banda Gadang Permai Blok B/5<br>Padang, Indonesia 25144</p>
+      </div>
+      <div class="footer-col">
+        <h4>Waktu Server</h4>
+        <p id="liveClock" class="clock">00:00:00</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2026 Kargoo Corps Enterprise. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
 </html>

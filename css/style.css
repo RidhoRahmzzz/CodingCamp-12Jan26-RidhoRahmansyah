@@ -1,237 +1,320 @@
-/* --- RESET DASAR --- */
+/* --- RESET & VARIABLES --- */
+:root {
+  --primary-color: #636c7a;
+  --secondary-color: #e87c00; 
+  --dark-bg: #020c1b;
+  --text-color: #333;
+  --text-light: #ffffff;
+  --bg-light: #eaff0033;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto; /* Tengah halaman jika layar sangat lebar */
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  overflow-x: hidden;
 }
 
-/* --- HEADER --- */
+/* --- NAVBAR --- */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #000;
-    padding: 10px 20px;
-    margin-bottom: 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  background: transparent;
 }
 
-/* Logo Bulat */
-.logo {
-    background-color: #ffe600;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-    line-height: 1;
+header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 50px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-/* Navigasi */
-nav ul {
-    list-style: none;
-    display: flex;
+.logo h1 {
+  font-size: 26px;
+  color: var(--white);
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: black;
-    padding: 8px 15px;
-    border: 1px solid #000;
-    display: inline-block;
-    font-size: 14px;
+.logo span { color: var(--secondary-color); }
+header.scrolled .logo h1 { color: var(--primary-color); }
+
+nav { display: flex; gap: 30px; align-items: center; }
+nav a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+  transition: 0.3s;
+  font-size: 0.95rem;
 }
-/* Hapus border double antar menu */
-nav ul li:not(:last-child) a {
-    border-right: none; 
+nav a:hover { color: var(--secondary-color); }
+header.scrolled nav a { color: var(--primary-color); }
+
+.btn-contact {
+  background: var(--secondary-color);
+  color: white !important;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 600;
 }
-
-
-/* --- HERO & BANNER --- */
-.hero-text {
-    margin-bottom: 20px;
-}
-
-.hero-text h1 { font-size: 28px; margin-bottom: 5px; }
-.hero-text p { font-size: 14px; color: #333; }
-
-.banner-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+.btn-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgb(62, 41, 27);
 }
 
-.banner-box {
-    width: 100%;
-    max-width: 100%;
-    height: 400px; /* Disesuaikan agar tidak terlalu panjang */
-    border: 1px solid #ff0000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background: var(--secondary-color); transition: 0.3s; }
+
+/* --- HERO SECTION --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  color: white;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Garis Pembatas */
-.divider {
-    margin: 40px 0;
-    border: 1px solid #ddd;
+/* Background untuk mengisi space kosong */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 0;
 }
 
+.hero-content { flex: 1; padding-right: 50px; z-index: 2; }
+.hero-content h4 { color: var(--secondary-color); letter-spacing: 2px; margin-bottom: 10px; font-weight: 700; }
+.hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
+.hero-content p { color: var(--text-light); margin-bottom: 30px; font-size: 1.1rem; max-width: 500px; }
+.highlight-name { color: var(--secondary-color); font-weight: bold; }
 
-/* --- SECTION: OUR FACILITATION --- */
-.facilitation-section {
-    text-align: center;
-    margin-bottom: 40px;
+.input-name-wrapper { display: flex; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+.input-name-wrapper input {
+  padding: 15px; border-radius: 8px; border: 1px solid #000000;
+  background: rgba(17, 34, 64, 0.8); color: rgb(230, 127, 0); width: 250px; outline: none;
+}
+.input-name-wrapper button {
+  padding: 15px 30px; background: transparent; border: 2px solid var(--secondary-color);
+  color: var(--secondary-color); border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: bold;
+}
+.input-name-wrapper button:hover { background: var(--secondary-color); color: white; }
+
+.hero-stats { display: flex; gap: 40px; }
+.stat-item h3 { font-size: 2.5rem; font-weight: 800; display: inline-block; }
+.stat-item span { color: var(--secondary-color); font-size: 2.5rem; }
+.stat-item p { margin: 0; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+
+/* Container pembungkus gambar */
+.hero-image {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  /* Agar logo berada tepat di tengah area kanannya */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.facilitation-section h2 {
-    text-align: left; /* Judul rata kiri sesuai gambar */
-    margin-bottom: 30px;
-    font-size: 24px;
+.hero-image img {
+  width: 100%;     
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  
+  filter: drop-shadow(0 0 20px rgba(4, 212, 249, 0.924)); 
+  
+  animation: floatLogo 4s ease-in-out infinite;
 }
 
-.facilitation-container {
-    display: flex;
-    justify-content: center;
-    gap: 80px; /* Jarak antar lingkaran */
+@keyframes floatLogo {
+  50% {
+    transform: translateY(25px);
+  }
+  50% {
+    transform: translateY(-50px); 
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
-.fac-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* --- RUNNING TEXT --- */
+.running-text-container {
+  width: 100%;
+  background-color: var(--secondary-color);
+  overflow: hidden;
+  padding: 25px 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  border-top: 5px solid var(--primary-color);
+  border-bottom: 5px solid var(--primary-color);
+  position: relative;
+  z-index: 5;
 }
 
-.circle-icon {
-    width: 120px;
-    height: 120px;
-    border: 1px solid #333;
-    border-radius: 50%;
-    margin-bottom: 15px;
+.loop-text { display: flex; }
+.loop-text h1 {
+  font-size: 70px; font-weight: 900; font-family: 'Poppins', sans-serif;
+  color: transparent; -webkit-text-stroke: 2px var(--primary-color);
+  margin-right: 50px; text-transform: uppercase; font-style: italic;
+  animation: animText 25s linear infinite;
 }
+.loop-text h1 span { color: var(--white); -webkit-text-stroke: 0px; }
+@keyframes animText { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
 
-.fac-item p {
-    font-weight: bold;
-    line-height: 1.4;
+/* --- PARTNERS BAR --- */
+.partners-bar {
+  background: white; padding: 30px 10%; text-align: center;
+  border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
 }
+.partners-bar p { font-weight: 600; color: #888; margin-right: 20px; }
+.logos { display: flex; gap: 30px; font-size: 2.5rem; color: #ccc; }
+.logos i { transition: 0.3s; cursor: pointer; }
+.logos i:hover { color: var(--primary-color); }
 
+/* --- SERVICES --- */
+.services { padding: 100px 10%; text-align: center; background: #fff; }
+.section-title { margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.section-title h2 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 10px; font-weight: 700; }
+.section-title p { color: #666; }
 
-/* --- SECTION: MESSAGE US --- */
-.message-section h2 {
-    margin-bottom: 30px;
-    font-size: 24px;
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.card {
+  background: var(--bg-light); padding: 40px 30px; border-radius: 15px;
+  transition: 0.4s; border: 1px solid #eee; text-align: left; position: relative; overflow: hidden;
 }
-
-.message-container {
-    display: flex;
-    gap: 50px; /* Jarak antara Form dan Kotak Hasil */
+.card:hover { transform: translateY(-10px); background: white; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+  background: var(--secondary-color); transform: scaleX(0); transform-origin: left; transition: 0.4s;
 }
+.card:hover::before { transform: scaleX(1); }
+.card .icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; }
+.card h3 { margin-bottom: 10px; color: var(--primary-color); }
+.card p { font-size: 0.9rem; color: #666; line-height: 1.6; margin-bottom: 20px; }
+.card-link { color: var(--secondary-color); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
 
-/* Bagian Kiri: FORM */
-.form-box {
-    flex: 1; /* Mengambil sisa ruang */
-    max-width: 500px;
+/* --- PARALLAX CTA --- */
+.cta-parallax {
+  background-image: url('https://cdn.pixabay.com/photo/2020/11/13/17/01/dhl-5739205_1280.jpg');
+  background-attachment: fixed; background-size: cover; background-position: center;
+  padding: 120px 10%; text-align: center; position: relative; color: white;
 }
-
-.form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+.cta-parallax .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 25, 47, 0.85); }
+.cta-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+.cta-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
+.btn-cta-large {
+  display: inline-block; margin-top: 30px; padding: 18px 40px;
+  background: var(--secondary-color); color: white; text-decoration: none;
+  font-weight: 700; border-radius: 5px; transition: 0.3s;
 }
+.btn-cta-large:hover { background: white; color: var(--secondary-color); }
 
-.form-group.align-top {
-    align-items: flex-start; /* Khusus textarea agar label di atas */
+/* --- ABOUT & FEATURES --- */
+.about { padding: 100px 10%; background: #fff; }
+.about-container { display: flex; align-items: center; gap: 60px; }
+.about-img { flex: 1; }
+.about-img img { width: 100%; border-radius: 15px; box-shadow: 20px 20px 0 #f0f0f0; }
+.about-text { flex: 1; }
+.about-text h2 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; }
+.features-list { margin-top: 40px; display: grid; gap: 20px; }
+.feature-item { display: flex; align-items: center; gap: 20px; background: var(--bg-light); padding: 15px; border-radius: 10px; }
+.feature-item i { font-size: 1.5rem; color: var(--secondary-color); background: rgba(255, 102, 0, 0.1); padding: 15px; border-radius: 50%; }
+.feature-item h4 { color: var(--primary-color); margin-bottom: 2px; }
+
+/* --- CONTACT --- */
+.contact { padding: 100px 10%; background: var(--primary-color); color: white; position: relative; }
+.contact::after {
+    content: ''; position: absolute; bottom: 0; right: 0; width: 300px; height: 300px;
+    background: url('https://cdn-icons-png.flaticon.com/512/446/446075.png');
+    opacity: 0.05; background-size: contain; background-repeat: no-repeat;
 }
-
-.form-group label {
-    width: 120px; /* Lebar label tetap agar input rata */
-    font-size: 14px;
-    font-weight: bold;
+.contact-container {
+  max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px); padding: 50px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
 }
-
-.form-group input[type="text"],
-.form-group input[type="date"],
-.form-group textarea {
-    flex: 1;
-    padding: 5px;
-    border: 1px solid #999;
-    border-radius: 4px;
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.input-group { position: relative; margin-bottom: 20px; }
+.input-group input, .input-group textarea, .input-group select {
+  width: 100%; padding: 15px; border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.2); color: white; border-radius: 8px; outline: none; transition: 0.3s;
 }
-
-.form-group textarea {
-    height: 80px;
-    resize: none;
+.input-group input:focus { border-color: var(--secondary-color); background: rgba(0,0,0,0.4); }
+.input-group select option { background: var(--primary-color); color: white; }
+.input-group label {
+  position: absolute; left: 15px; top: 15px; color: rgba(255,255,255,0.5); pointer-events: none; transition: 0.3s;
 }
-
-.radio-group {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+.input-group input:focus ~ label, .input-group input:valid ~ label, 
+.input-group textarea:focus ~ label, .input-group textarea:valid ~ label, .static-label {
+  top: -10px; left: 10px; font-size: 12px; background: var(--primary-color); padding: 0 5px; color: var(--secondary-color);
 }
-
 .submit-btn {
-    width: 100%;
-    padding: 8px;
-    background-color: #e0e0e0;
-    border: 1px solid #999;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-top: 10px;
+  width: 100%; background: var(--secondary-color); color: white; border: none;
+  padding: 15px; font-size: 16px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
 }
+.submit-btn:hover { background: white; color: var(--secondary-color); }
 
-/* Bagian Kanan: RESULT BOX */
-.result-box {
-    flex: 1;
-    border: 1px solid #333;
-    padding: 20px;
-    height: fit-content;
-    min-height: 250px;
-}
-
-.result-box p {
-    margin-bottom: 5px;
-    font-size: 14px;
-}
-
+/* Result Ticket */
+.result-ticket { background: white; color: #333; padding: 25px; border-radius: 10px; margin-top: 25px; border-left: 5px solid #28a745; animation: slideDown 0.5s ease; }
+.ticket-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px; }
+.ticket-header h3 { color: #28a745; font-size: 1.1rem; }
 
 /* --- FOOTER --- */
-footer {
-    margin-top: 50px;
-}
-footer hr {
-    margin-bottom: 15px;
-    border: 1px solid #000;
-}
-footer p {
-    text-align: right;
-    font-size: 12px;
-}
+.footer { background: #050d1a; color: var(--text-light); padding: 80px 10% 20px 10%; font-size: 0.9rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+.footer-col h3 { color: white; margin-bottom: 20px; font-size: 1.5rem; }
+.footer-col h3 span { color: var(--secondary-color); }
+.footer-col h4 { color: white; margin-bottom: 20px; font-weight: 600; }
+.footer-col a { display: block; color: var(--text-light); text-decoration: none; margin-bottom: 10px; transition: 0.3s; }
+.footer-col a:hover { color: var(--secondary-color); padding-left: 5px; }
+.copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; }
 
-/* --- RESPONSIVE (Untuk HP) --- */
+/* --- ANIMATION UTILS --- */
+.hidden { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+.show { opacity: 1; transform: translateY(0); }
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .facilitation-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .message-container {
-        flex-direction: column;
-    }
+  header { padding: 15px 20px; background: var(--primary-color); }
+  .menu-toggle { display: block; }
+  nav {
+    position: absolute; top: 60px; right: -100%; width: 100%; height: 100vh;
+    background: var(--primary-color); flex-direction: column; padding-top: 50px; transition: 0.4s;
+  }
+  nav.active { right: 0; }
+  .hero { flex-direction: column-reverse; text-align: center; padding-top: 100px; padding-bottom: 50px; }
+  .hero-content { padding-right: 0; }
+  .hero-image img { margin-bottom: 30px; height: 250px; }
+  .input-name-wrapper { justify-content: center; }
+  .hero-stats { justify-content: center; margin-top: 30px; }
+  .partners-bar { justify-content: center; gap: 20px; }
+  .about-container { flex-direction: column; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .loop-text h1 { font-size: 35px; -webkit-text-stroke: 1px var(--primary-color); }
 }
