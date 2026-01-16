@@ -273,6 +273,32 @@ header.scrolled nav a { color: var(--primary-color); }
 .input-group textarea:focus ~ label, .input-group textarea:valid ~ label, .static-label {
   top: -10px; left: 10px; font-size: 12px; background: var(--primary-color); padding: 0 5px; color: var(--secondary-color);
 }
+
+/* --- FIX UNTUK SELECT OPTION --- */
+/* Memaksa label dengan class 'static-label' agar selalu berada di posisi atas (floating) */
+.input-group .static-label {
+  top: -10px !important;
+  left: 10px !important;
+  font-size: 12px !important;
+  background: var(--primary-color) !important; /* Agar background label menutup garis border */
+  padding: 0 5px !important;
+  color: var(--secondary-color) !important;
+  z-index: 10;
+}
+
+/* Memperbaiki tampilan dropdown select agar teksnya tidak terlalu mepet kiri */
+.input-group select {
+  cursor: pointer;
+  color: white; /* Pastikan teks terlihat di background gelap */
+}
+
+/* Mengubah warna opsi saat dropdown dibuka (karena option default browser biasanya putih/hitam) */
+.input-group select option {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+}
+
 .submit-btn {
   width: 100%; background: var(--secondary-color); color: white; border: none;
   padding: 15px; font-size: 16px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
